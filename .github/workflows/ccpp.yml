@@ -11,5 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: make
+    
+    - name: download pythia tarball
+      uses: wei/curl@v1
+      with:
+        args: http://home.thep.lu.se/~torbjorn/pythia8/pythia8244.tgz > pythia8244.tgz
+
+    - name: untar
+      run: tar xvzf pythia8244.tgz
+
+    - name: build pythia
+      run: make -C pythia8244
+
+    - name: build code
       run: make
