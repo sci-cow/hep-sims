@@ -23,5 +23,8 @@ jobs:
     - name: build pythia
       run: make -C pythia8244
 
+    - name: configure pythia
+      run: ./pythia8244/configure.sh
+
     - name: build code
       run: make
