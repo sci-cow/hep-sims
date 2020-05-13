@@ -5,9 +5,12 @@ PREFIX_INCLUDE=/home/cow/Documents/sims/pythia8244/include
 CXX_COMMON:=-I$(PREFIX_INCLUDE) $(CXX_COMMON)
 CXX_COMMON+= -L$(PREFIX_LIB) -Wl,-rpath,$(PREFIX_LIB) -lpythia8 -ldl 
 
-all: basic-decays.cc $(PREFIX_LIB)/libpythia8.a
-	$(CXX) $< -o basic-pythia $(CXX_COMMON) 
+all: 
+	$(MAKE) basic_pythia
+
+basic_pythia:
+	$(MAKE) -C basic/pythia
 
 # Clean.
 clean:
-	rm -f *.o basic-pythia *.out
+	$(MAKE) clean -C basic/pythia
