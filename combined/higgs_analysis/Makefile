@@ -10,14 +10,11 @@ endif
 CXX_COMMON:=-I$(PREFIX_INCLUDE) $(CXX_COMMON)
 CXX_COMMON+= -L$(PREFIX_LIB) -Wl,-rpath,$(PREFIX_LIB) -lpythia8 -ldl 
 
-all: hist basic-decays
+all: pythia-event-gen
 
-hist: hist.cc $(PREFIX_LIB)/libpythia8.a
-	$(CXX) $< -o hist $(CXX_COMMON) 
-
-basic-decays: basic-decays.cc $(PREFIX_LIB)/libpythia8.a
-	$(CXX) $< -o basic-decays $(CXX_COMMON) 
+pythia-event-gen: pythia-event-gen.cc $(PREFIX_LIB)/libpythia8.a
+	$(CXX) $< -o pythia-event-gen $(CXX_COMMON) 
 
 # Clean.
 clean:
-	rm -f *.o basic-pythia hist *.out
+	rm -f *.o pythia-event-gen *.out

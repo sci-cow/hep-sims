@@ -1,0 +1,6 @@
+! TODO: We'll want to maybe add in some background channels for a more realistic environment
+HiggsSM:all = on
+Beams:eCM = 8000.
+Next:numberShowEvent = 5
+Beams:idA = 2212
+Beams:idB = 2212
